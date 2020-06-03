@@ -1,0 +1,21 @@
+name: GitHub Actions Evnet Test
+
+on: pull_request
+
+jobs:
+  display-value:
+    name: display-value
+    run-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: GITHUB_SHA
+        shell: bash
+        run: echo ${GITHUB_SHA}
+        id: github-sha
+
+      - name: GITHUB_REF
+        shell: bash
+        run: echo ${GITHUB_REF}
+        id: github-ref
