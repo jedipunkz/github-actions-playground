@@ -26,8 +26,8 @@ jobs:
       - name: PR Number
         id: pr-number
         run: |
-          pull_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-          echo "::set-output name=pr-number::${pull_request}"
+          pr-number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+          echo "::set-output name=pr-number::${pr-number}"
 
       - name: display pr number
         shell: bash
