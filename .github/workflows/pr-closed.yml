@@ -1,4 +1,4 @@
-name: GitHub Actions Event Test on push mester
+name: Event Test on PR-Close
 
 on:
   pull_request:
@@ -26,8 +26,8 @@ jobs:
       - name: PR Number
         id: pr-number
         run: |
-          pr-number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-          echo "::set-output name=pr-number::${pr-number}"
+          pr_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+          echo "::set-output name=pr-number::${pr_number}"
 
       - name: display pr number
         shell: bash
