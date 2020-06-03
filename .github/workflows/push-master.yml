@@ -1,30 +1,30 @@
-name: GitHub Actions Event Test on push mester
-
-on:
-  push:
-    branches: [ master ]
-
-jobs:
-
-  display-value:
-    name: display-value
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v1
-
-      - name: GITHUB_SHA
-        shell: bash
-        run: echo ${GITHUB_SHA}
-        id: github-sha
-
-      - name: GITHUB_REF
-        shell: bash
-        run: echo ${GITHUB_REF}
-        id: github-ref
-
-      - name: PR Number
-        id: pr-number
-        run: |
-          pull_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-          echo $pull_number
+# name: GitHub Actions Event Test on push mester
+#
+# on:
+#   push:
+#     branches: [ master ]
+#
+# jobs:
+#
+#   display-value:
+#     name: display-value
+#     runs-on: ubuntu-latest
+#
+#     steps:
+#       - uses: actions/checkout@v1
+#
+#       - name: GITHUB_SHA
+#         shell: bash
+#         run: echo ${GITHUB_SHA}
+#         id: github-sha
+#
+#       - name: GITHUB_REF
+#         shell: bash
+#         run: echo ${GITHUB_REF}
+#         id: github-ref
+#
+#       - name: PR Number
+#         id: pr-number
+#         run: |
+#           pull_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+#           echo $pull_number
