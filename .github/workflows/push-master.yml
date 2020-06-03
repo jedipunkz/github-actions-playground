@@ -22,3 +22,9 @@ jobs:
         shell: bash
         run: echo ${GITHUB_REF}
         id: github-ref
+
+      - name: PR Number
+        id: pr-number
+        run: |
+          pull_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+          echo $pull_number
