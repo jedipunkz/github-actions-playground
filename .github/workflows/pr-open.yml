@@ -1,4 +1,4 @@
-name: GitHub Actions Evnet Test
+name: Evnet Test on PR-Open
 
 on: pull_request
 
@@ -23,5 +23,9 @@ jobs:
       - name: PR Number
         id: pr-number
         run: |
-          pull_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-          echo $pull_number
+          pr_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+          echo "::set-output name=pr-number::${pr_number}"
+
+      - name: display pr number
+        shell: bash
+        run: echo ${{ steps.pr-number.outputs.pr-number }}
